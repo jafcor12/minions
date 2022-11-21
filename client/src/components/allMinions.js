@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Minion from './Minion'
 
 export default function AllMinions() {
+
+    const [minions, setMinions] = useState([])
+
     return (
-        <div id="meetings-landing">
+        <div id="minions-landing">
             <div className="label meetings-label">
                 Minions
             </div>
@@ -16,7 +20,8 @@ export default function AllMinions() {
                         </tr>
                     </thead>
                     <tbody>
-                        {}
+                        {/* {minions.map((minion) => { */}<Minion id={1} name={"jafeth"} salary={9000} />
+                        {/* // })} */}
                     </tbody>
                 </table>
             </div>
