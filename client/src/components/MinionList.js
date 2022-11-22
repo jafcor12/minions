@@ -33,14 +33,15 @@ export default function MinionList() {
                                         <p>{name}</p>
                                         <p>ID #{minion.id}</p>
                                     </Link>
-                                    <img onClick={() => console.log("Hola")}  className="button x-button" src={require("../img/close.png")} alt="" />
+                                    <img onClick={() => console.log("Hola")} className="button x-button"
+                                        src={require("../img/close.png")} alt="" />
                                 </div>
                             )
-                        }) }
+                        })}
                         <div id="add-minion-button-grid" className="minion-grid">
                             <Link to="/minions/new">
-                                <img id="add-minion-button" className="button" src={require("../img/add.png")} alt="" 
-                                onClick={() => console.log("Juan")}/>
+                                <img id="add-minion-button" className="button" src={require("../img/add.png")} alt=""
+                                    onClick={() => console.log("Juan")} />
                             </Link>
                         </div>
                     </div>

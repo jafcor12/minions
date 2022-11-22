@@ -6,7 +6,12 @@ export default function Minion(props) {
             <td><p>{props.id}</p></td>
             <td><p>{props.name}</p></td>
             <td><p>{props.salary}</p></td>
-            <td><button>Delete</button></td>
+            <td>
+                <p id='crud-button'>
+                    <button>Delete</button>
+                    <button>Update</button>
+                </p>
+            </td>
         </tr>
     )
 }
