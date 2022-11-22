@@ -105,6 +105,12 @@ a {
   margin: 12px auto;
 }
 
+.minions {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
 #minions-landing {
   margin: 3.5px;
   width: 287px;
@@ -156,16 +162,20 @@ a {
   }
 }
 
-#th-time {
+#th-id {
   width: 69.1px;
 }
 
-#th-location {
+#th-name {
   width: 96.6px;
 }
 
-#th-note {
+#th-salary {
   width: 100.9px;
+}
+
+#th-crud {
+  width: 200px;
 }
 
 /* Tables */
@@ -260,7 +270,7 @@ td:nth-last-child(1) {
 }
 
 #back-button {
-  position: absolute;
+  /* position: absolute; */
   top: 6px;
   left: 4px;
 }

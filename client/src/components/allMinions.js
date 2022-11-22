@@ -14,9 +14,10 @@ export default function AllMinions() {
                 <table>
                     <thead>
                         <tr>
-                            <th id="th-time">Time</th>
-                            <th id="th-location">Date</th>
-                            <th id="th-note">Note</th>
+                            <th id="th-id">Time</th>
+                            <th id="th-name">Date</th>
+                            <th id="th-salary">Note</th>
+                            <th id='th-crud'>CRUD</th>
                         </tr>
                     </thead>
                     <tbody>
