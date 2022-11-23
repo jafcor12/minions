@@ -37,7 +37,7 @@ export default function MinionList() {
                                     <Link to={{
                                         pathname: `/minions/${minion.id}`,
                                         state: {minion}
-                                }} onClick={() => console.log('HOla')}>
+                                }}>
                                         <img className="button minion-thumbnail" src={require("../img/minion.png")} alt="minion" />
                                         <p>{name}</p>
                                         <p>ID #{minion.id}</p>
@@ -54,8 +54,7 @@ export default function MinionList() {
                                             newMinion: true
                                         }
                                 }}>
-                                <img id="add-minion-button" className="button" src={require("../img/add.png")} alt=""
-                                    onClick={() => console.log("Juan")} />
+                                <img id="add-minion-button" className="button" src={require("../img/add.png")} alt="" />
                             </Link>
                         </div>
                     </div>
