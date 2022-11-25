@@ -329,6 +329,21 @@ td:nth-last-child(1) {
   align-self: center;
 }
 
+.minion-save-button-home {
+  margin: 10px 0;
+  width: 52.5px;
+  height: 19.6px;
+  background-color: #ff4f58;
+  font-size: 9.6px;
+  font-weight: bold;
+  letter-spacing: 0.9px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+
 #add-minion-button {
   width: 25px;
 }
