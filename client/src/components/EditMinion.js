@@ -28,17 +28,25 @@ export default function EditMinion() {
         })
     }
 
-    const handleUpdate = () => {
+    const handleSaveButton = () => {
         const id = state.id
         const weakn = state.weakness
         const nombre = state.name
         const salario = state.salary
-        Axios.put('http://localhost:4001/api/update', {
+
+        newMinion ? (Axios.post('http://localhost:4001/api/insert', {
+            ID: id,
+            NAME: nombre,
+            SALARY: salario,
+            WEAKNESS: weakn
+        }).then((response) => console.log(response)))
+        : (Axios.put('http://localhost:4001/api/update', {
             ID: id,
             NAME: nombre,
             SALARY: salario,
             WEAKNESS: weakn
         }).then((response) => console.log(response))
+        ) 
         navigate(path)
     }
 
@@ -76,7 +84,7 @@ export default function EditMinion() {
                                         />
                                 }
                             </div>
-                            <div className="button minion-save-button" onClick={handleUpdate}>
+                            <div className="button minion-save-button" onClick={handleSaveButton}>
                                 {'Save'}
                             </div>
                         </div>

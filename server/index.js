@@ -45,6 +45,24 @@ app.get('/api/list', (req, res) => {
     })
 })
 
+app.post('/api/insert', (req, res) => {
+    const id = req.body.ID
+    const name = req.body.NAME
+    const salary = req.body.SALARY
+    const weakness = req.body.WEAKNESS
+    connection.execute({
+        sqlText: "INSERT INTO PERSONA VALUES (?, ?, ?, ?)",
+        binds: [id, name, salary, weakness],
+        complete: function (err, stmt, rows) {
+            if (err) {
+                console.error('Failed to execute statement due to the following error: ' + err.message);
+            } else {
+                res.send("Minion inserted");
+            }
+        }
+    })
+})
+
 app.put('/api/update', (req, res) => {
     const id = req.body.ID
     const name = req.body.NAME
