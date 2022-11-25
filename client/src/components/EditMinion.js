@@ -6,7 +6,7 @@ import MinionEdit from './MinionEdit'
 export default function EditMinion() {
 
     const location = useLocation()
-    const { minion, newMinion,  } = location.state
+    const { minion, newMinion, } = location.state
 
     const [state, setState] = useState({
         id: !newMinion ? minion.ID : '',
@@ -15,7 +15,7 @@ export default function EditMinion() {
         weakness: !newMinion ? minion.WEAKNESS : ''
     })
 
-    let navigate = useNavigate(); 
+    let navigate = useNavigate();
     const path = minion.homePage ? '/' : '/minions'
 
     const handleChange = (e) => {
@@ -43,34 +43,38 @@ export default function EditMinion() {
 
     return (
         <div>
-            <div className="button back-button">
-                <Link to={minion.homePage ? '/' : '/minions'}>
-                    <img className="button" src={require("../img/left-arrow.png")} alt="" />
-                </Link>
-            </div>
-            <div id="single-minion-landing">
-                <div className="minion-details">
-                    <div className="label meetings-label">
-                        {
-                            newMinion
-                                ? `New Minion`
-                                : `Minion Id #${minion.ID}`
-                        }
-                    </div>
-                    <div className="minion-description">
-                        {
-                            // newMinion
-                            //     ? <MinionDescription />
-                            //     : 
-                            <MinionEdit
-                                state={ state }
-                                setState={ setState }
-                                handleChange={ handleChange }
-                            />
-                        }
-                    </div>
-                    <div className="button minion-save-button" onClick={handleSubmit}>
-                        {'Save'}
+            <div>
+                <div className="button back-button">
+                    <Link to={minion.homePage ? '/' : '/minions'}>
+                        <img className="button" src={require("../img/left-arrow.png")} alt="" />
+                    </Link>
+                </div>
+                <div className='minions'>
+                    <div id="single-minion-landing">
+                        <div className="minion-details">
+                            <div className="label meetings-label">
+                                {
+                                    newMinion
+                                        ? `New Minion`
+                                        : `Minion Id #${minion.ID}`
+                                }
+                            </div>
+                            <div className="minion-description">
+                                {
+                                    // newMinion
+                                    //     ? <MinionDescription />
+                                    //     : 
+                                    <MinionEdit
+                                        state={state}
+                                        setState={setState}
+                                        handleChange={handleChange}
+                                    />
+                                }
+                            </div>
+                            <div className="button minion-save-button" onClick={handleSubmit}>
+                                {'Save'}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
