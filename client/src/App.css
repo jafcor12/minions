@@ -610,7 +610,7 @@ td:nth-last-child(1) {
 
 #single-minion-landing {
   width: 287px;
-  height: 394px;
+  height: 350px;
   border: solid 2px #ff4f58;
   display: flex;
   flex-direction: column;

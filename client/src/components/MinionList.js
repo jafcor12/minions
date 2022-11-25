@@ -1,23 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Axios from 'axios'
 
 export default function MinionList() {
 
-    const [minions, setMinions] = useState([{
-        id: 1,
-        name: "Jafeth",
-        salary: 1000,
-        weakness: 'handsome'
-    }, {
-        id: 2,
-        name: "Juan",
-        salary: 2000,
-        weakness: 'ugly'
-    }])
+    const [list, setList] = useState([])
 
-    /*
-        Conectarse a la base de datos y traer la informacion de los minions
-     */
+    useEffect(() => {
+        Axios.get('http://localhost:4001/api/list').then((response) => {
+            console.log(response.data)
+            setList(response.data);
+        });
+    }, []);
 
     return (
         <div>
@@ -30,17 +24,17 @@ export default function MinionList() {
                 <div id="minions-landing">
                     <div id="minions-title" className="label minions-label">MINIONS.exe</div>
                     <div id="all-minions">
-                        {minions.map(minion => {
-                            let name = minion.name.match(/.{1,11}/g).join('\n');
+                        {list.map(minion => {
+                            // let name = minion.name.match(/.{1,11}/g).join('\n');
                             return (
-                                <div className="minion-grid" key={minion.id}>
-                                    <Link to={{
-                                        pathname: `/minions/${minion.id}`,
-                                        state: {minion}
-                                }}>
+                                <div className="minion-grid" key={minion.ID}>
+                                    <Link to={`/minions/${minion.ID}`} state={{
+                                        minion: minion,
+                                        newMinion: false
+                                    }}>
                                         <img className="button minion-thumbnail" src={require("../img/minion.png")} alt="minion" />
-                                        <p>{name}</p>
-                                        <p>ID #{minion.id}</p>
+                                        <p>{minion.NAME}</p>
+                                        <p>ID #{minion.ID}</p>
                                     </Link>
                                     <img onClick={() => console.log("Hola")} className="button x-button"
                                         src={require("../img/close.png")} alt="" />
@@ -49,11 +43,11 @@ export default function MinionList() {
                         })}
                         <div id="add-minion-button-grid" className="minion-grid">
                             <Link to={{
-                                        pathname: '/minions/new',
-                                        state: {
-                                            newMinion: true
-                                        }
-                                }}>
+                                pathname: '/minions/new',
+                                state: {
+                                    newMinion: true
+                                }
+                            }}>
                                 <img id="add-minion-button" className="button" src={require("../img/add.png")} alt="" />
                             </Link>
                         </div>
