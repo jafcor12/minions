@@ -28,19 +28,19 @@ export default function EditMinion() {
         })
     }
 
-    const handleSaveButton = () => {
+    const handleSaveButton = async () => {
         const id = state.id
         const weakn = state.weakness
         const nombre = state.name
         const salario = state.salary
 
-        newMinion ? (Axios.post('http://localhost:4001/api/insert', {
+        newMinion ? (await Axios.post('http://localhost:4001/api/insert', {
             ID: id,
             NAME: nombre,
             SALARY: salario,
             WEAKNESS: weakn
         }).then((response) => console.log(response)))
-        : (Axios.put('http://localhost:4001/api/update', {
+        : (await Axios.put('http://localhost:4001/api/update', {
             ID: id,
             NAME: nombre,
             SALARY: salario,
