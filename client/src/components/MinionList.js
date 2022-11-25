@@ -43,7 +43,7 @@ export default function MinionList() {
                         <div id="add-minion-button-grid" className="minion-grid">
                             <Link to={'/minions/new}'} state={{
                                 newMinion: true,
-                                minion: list.slice(-1)[0]
+                                minion: list.length > 0 ? list.slice(-1)[0] : { ID: 0 }
                             }}>
                                 <img id="add-minion-button" className="button" src={require("../img/add.png")} alt="" />
                             </Link>
