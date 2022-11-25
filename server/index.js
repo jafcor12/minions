@@ -63,6 +63,23 @@ app.put('/api/update', (req, res) => {
     })
 })
 
+app.delete('/api/delete/:id', (req, res) => {
+    const { id } = req.params
+    connection.execute({
+        sqlText: "DELETE FROM PERSONA WHERE ID = ?;",
+        binds: [id],
+        complete: function (err, stmt, rows) {
+            if (err) {
+                console.error('Failed to execute statement due to the following error: ' + err.message);
+            } else {
+                console.log(rows)
+                res.send("Minion deleted");
+            }
+        }
+    })
+
+})
+
 app.listen(port, () => {
     console.log(`App listening in server ${port}`)
 })

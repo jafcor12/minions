@@ -1,6 +1,7 @@
 import Axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import MinionDescription from './MinionDescription'
 import MinionEdit from './MinionEdit'
 
 export default function EditMinion() {
@@ -9,9 +10,9 @@ export default function EditMinion() {
     const { minion, newMinion, } = location.state
 
     const [state, setState] = useState({
-        id: !newMinion ? minion.ID : '',
+        id: !newMinion ? minion.ID : minion.ID + 1,
         name: !newMinion ? minion.NAME : '',
-        salary: !newMinion ? minion.SALARY : '',
+        salary: !newMinion ? minion.SALARY : 0,
         weakness: !newMinion ? minion.WEAKNESS : ''
     })
 
@@ -27,7 +28,7 @@ export default function EditMinion() {
         })
     }
 
-    const handleSubmit = () => {
+    const handleUpdate = () => {
         const id = state.id
         const weakn = state.weakness
         const nombre = state.name
@@ -61,17 +62,21 @@ export default function EditMinion() {
                             </div>
                             <div className="minion-description">
                                 {
-                                    // newMinion
-                                    //     ? <MinionDescription />
-                                    //     : 
-                                    <MinionEdit
-                                        state={state}
-                                        setState={setState}
-                                        handleChange={handleChange}
-                                    />
+                                    newMinion
+                                        ? <MinionDescription
+                                            state={state}
+                                            setState={setState}
+                                            handleChange={handleChange}
+                                        />
+                                        :
+                                        <MinionEdit
+                                            state={state}
+                                            setState={setState}
+                                            handleChange={handleChange}
+                                        />
                                 }
                             </div>
-                            <div className="button minion-save-button" onClick={handleSubmit}>
+                            <div className="button minion-save-button" onClick={handleUpdate}>
                                 {'Save'}
                             </div>
                         </div>

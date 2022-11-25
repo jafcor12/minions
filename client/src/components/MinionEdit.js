@@ -22,7 +22,7 @@ export default function MinionEdit(props) {
             </div>
             <div>
                 <textarea className="minion-input-textarea" name="weakness" value={props.state.weakness} 
-                    onChange={props.handleChange} />
+                    onChange={ props.handleChange } />
             </div>
         </div>
     )

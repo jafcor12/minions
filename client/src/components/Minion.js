@@ -8,10 +8,10 @@ export default function Minion(props) {
         "NAME": props.NAME,
         "SALARY": props.SALARY,
         "WEAKNESS": props.WEAKNESS,
-        "homePage": true
+        "homePage": props.homePage
     }
 
-    console.log(props.CRUD)
+    // console.log(props.CRUD)
 
     return (
         <tr>
@@ -20,7 +20,7 @@ export default function Minion(props) {
             <td><p>{props.SALARY}</p></td>
             {props.CRUD ? (<td>
                 <p id='crud-button'>
-                    <button delete={props.delete}>Delete</button>
+                    <button onClick={() => props.deleteMinion(minion.ID)}>Delete</button>
                     <Link to={`/minions/${minion.ID}`} state={{
                         minion: minion,
                         newMinion: false

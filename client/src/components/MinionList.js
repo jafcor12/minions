@@ -25,7 +25,6 @@ export default function MinionList() {
                     <div id="minions-title" className="label minions-label">MINIONS.exe</div>
                     <div id="all-minions">
                         {list.map(minion => {
-                            // let name = minion.name.match(/.{1,11}/g).join('\n');
                             return (
                                 <div className="minion-grid" key={minion.ID}>
                                     <Link to={`/minions/${minion.ID}`} state={{
@@ -42,11 +41,9 @@ export default function MinionList() {
                             )
                         })}
                         <div id="add-minion-button-grid" className="minion-grid">
-                            <Link to={{
-                                pathname: '/minions/new',
-                                state: {
-                                    newMinion: true
-                                }
+                            <Link to={'/minions/new}'} state={{
+                                newMinion: true,
+                                minion: list.slice(-1)[0]
                             }}>
                                 <img id="add-minion-button" className="button" src={require("../img/add.png")} alt="" />
                             </Link>
