@@ -1,4 +1,6 @@
 package com.example.restapi.Backend.Minion.Domain;
 
-public interface MinionRepository {
+import org.springframework.data.mongodb.repository.MongoRepository;
+public interface MinionRepository
+        extends MongoRepository<Minion, Integer> {
 }
