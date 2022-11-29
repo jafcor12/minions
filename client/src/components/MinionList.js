@@ -26,14 +26,14 @@ export default function MinionList() {
                     <div id="all-minions">
                         {list.map(minion => {
                             return (
-                                <div className="minion-grid" key={minion.ID}>
-                                    <Link to={`/minions/${minion.ID}`} state={{
+                                <div className="minion-grid" key={minion.id}>
+                                    <Link to={`/minions/${minion.id}`} state={{
                                         minion: minion,
                                         newMinion: false
                                     }}>
                                         <img className="button minion-thumbnail" src={require("../img/minion.png")} alt="minion" />
-                                        <p>{minion.NAME}</p>
-                                        <p>ID #{minion.ID}</p>
+                                        <p>{minion.name}</p>
+                                        <p>ID #{minion.id}</p>
                                     </Link>
                                     <img onClick={() => console.log("Hola")} className="button x-button"
                                         src={require("../img/close.png")} alt="" />

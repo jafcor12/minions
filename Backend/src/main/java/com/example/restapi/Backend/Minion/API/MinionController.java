@@ -6,6 +6,7 @@ import com.example.restapi.Backend.Minion.Domain.MinionService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping("api/")
 @AllArgsConstructor
