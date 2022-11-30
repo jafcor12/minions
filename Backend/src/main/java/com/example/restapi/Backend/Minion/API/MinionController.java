@@ -33,4 +33,12 @@ public class MinionController {
         minionService.updateMinion(minion);
         return "Minion updated";
     }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteMinion(@PathVariable("id") int id) {
+        Optional<Minion> existingMinion = minionService.getById(id);
+        if (!existingMinion.isPresent()) return "This minion does not exists";
+        minionService.deleteMinion(id);
+        return "Minion deleted";
+    }
 }

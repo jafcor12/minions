@@ -27,4 +27,8 @@ public class MinionService {
     public void updateMinion(Minion minion) {
         minionrepository.save(minion);
     }
+
+    public void deleteMinion(int id) {
+        minionrepository.deleteById(id);
+    }
 }
