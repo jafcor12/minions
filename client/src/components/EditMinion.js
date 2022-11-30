@@ -10,10 +10,10 @@ export default function EditMinion() {
     const { minion, newMinion, } = location.state
 
     const [state, setState] = useState({
-        id: !newMinion ? minion.ID : minion.ID + 1,
-        name: !newMinion ? minion.NAME : '',
-        salary: !newMinion ? minion.SALARY : 0,
-        weakness: !newMinion ? minion.WEAKNESS : ''
+        id: !newMinion ? minion.id : (minion.id != null ? minion.id + 1 : 1),
+        name: !newMinion ? minion.name : '',
+        salary: !newMinion ? minion.salary : 0,
+        weakness: !newMinion ? minion.weakness : ''
     })
 
     let navigate = useNavigate();

@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 export default function Minion(props) {
 
     const minion = {
-        "ID": props.ID,
-        "NAME": props.NAME,
-        "SALARY": props.SALARY,
-        "WEAKNESS": props.WEAKNESS,
-        "homePage": props.homePage
+        id: props.ID,
+        name: props.NAME,
+        salary: props.SALARY,
+        weakness: props.WEAKNESS,
+        homePage: props.homePage
     }
 
     // console.log(props.CRUD)
@@ -20,8 +20,8 @@ export default function Minion(props) {
             <td><p>{props.SALARY}</p></td>
             {props.CRUD ? (<td>
                 <p id='crud-button'>
-                    <button className='minion-save-button-home' onClick={() => props.deleteMinion(minion.ID)}>Delete</button>
-                    <Link to={`/minions/${minion.ID}`} state={{
+                    <button className='minion-save-button-home' onClick={() => props.deleteMinion(minion.id)}>Delete</button>
+                    <Link to={`/minions/${minion.id}`} state={{
                         minion: minion,
                         newMinion: false
                     }}>

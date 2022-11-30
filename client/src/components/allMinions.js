@@ -44,7 +44,7 @@ export default function AllMinions() {
                                 list.map((minion) => {
                                     return <Minion ID={minion.id} NAME={minion.name} SALARY={minion.salary} WEAKNESS={minion.weakness} CRUD={data} homePage={true} deleteMinion={deleteMinion} />
                                 }) :
-                                <Minion ID={"No data"} NAME={"No data"} SALARY={"No data"} CRUD={data} homePage={false} />
+                                <Minion id={"No data"} name={"No data"} salary={"No data"} CRUD={data} homePage={false} />
                         }
                     </tbody>
                 </table>
