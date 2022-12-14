@@ -65,7 +65,7 @@ export default function EditMinion() {
                                 {
                                     newMinion
                                         ? `New Minion`
-                                        : `Minion Id #${minion.ID}`
+                                        : `Minion Id #${minion.id}`
                                 }
                             </div>
                             <div className="minion-description">

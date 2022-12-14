@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  mongodb:
+    image: "mongo"
+  backend_c:
+    build: ./Backend
+    ports:
+      - "4001:4001"
+    depends_on:
+      - mongodb
+  frontend_c:
+    build: ./client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend_c
